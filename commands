@@ -1,0 +1,95 @@
+
+Check Data store status
+
+sudo systemctl status redis
+memcached -p 11211 -m 64 -vv
+sudo systemctl status aerospike
+
+
+
+redis commands
+Load workloada
+./bin/ycsb load redis -s -P workloads/workloada -p "redis.host=127.0.0.1" -p "redis.port=6379"
+Run workloada
+./bin/ycsb run redis -s -P workloads/workloada -p "redis.host=127.0.0.1" -p "redis.port=6379" > redis_workloada_result.txt
+
+load workloadb
+./bin/ycsb load redis -s -P workloads/workloadb -p "redis.host=127.0.0.1" -p "redis.port=6379"
+
+run workloadb
+./bin/ycsb run redis -s -P workloads/workloadb -p "redis.host=127.0.0.1" -p "redis.port=6379" > redis_workloadb_result.txt
+
+load workloadc
+
+./bin/ycsb load redis -s -P workloads/workloadc -p "redis.host=127.0.0.1" -p "redis.port=6379"
+
+run workloadc
+
+./bin/ycsb run redis -s -P workloads/workloadc -p "redis.host=127.0.0.1" -p "redis.port=6379" > redis_workloadc_result.txt
+
+load workloadd 
+./bin/ycsb load redis -s -P workloads/workloadd -p "redis.host=127.0.0.1" -p "redis.port=6379"
+
+Run workloadd
+./bin/ycsb run redis -s -P workloads/workloadd -p "redis.host=127.0.0.1" -p "redis.port=6379" > redis_workloadd_result.txt
+
+Load workloade
+./bin/ycsb load redis -s -P workloads/workloade -p "redis.host=127.0.0.1" -p "redis.port=6379"
+
+Run workloade
+./bin/ycsb run redis -s -P workloads/workloade -p "redis.host=127.0.0.1" -p "redis.port=6379" > redis_workloade_result.txt
+
+We do the same to workload F
+./bin/ycsb load redis -s -P workloads/workloadf -p "redis.host=127.0.0.1" -p "redis.port=6379"
+./bin/ycsb run redis -s -P workloads/workloadf -p "redis.host=127.0.0.1" -p "redis.port=6379" > redis_workloadf_result.txt
+
+Let's run tests for Memcached
+
+Memcached Commands
+Load workloada
+./bin/ycsb load memcached -s -P workloads/workloada -p "memcached.hosts=127.0.0.1"
+
+Run workloada
+./bin/ycsb run memcached -s -P workloads/workloada -p "memcached.hosts=127.0.0.1" > memcached_workloada_result.txt
+
+./bin/ycsb load memcached -s -P workloads/workloadb -p "memcached.hosts=127.0.0.1"
+./bin/ycsb run memcached -s -P workloads/workloadb -p "memcached.hosts=127.0.0.1" > memcached_workloadb_result.txt
+
+We do the same to the remaining workloads
+
+./bin/ycsb load memcached -s -P workloads/workloadc -p "memcached.hosts=127.0.0.1"
+./bin/ycsb run memcached -s -P workloads/workloadc -p "memcached.hosts=127.0.0.1" > memcached_workloadc_result.txt
+
+./bin/ycsb load memcached -s -P workloads/workloadd -p "memcached.hosts=127.0.0.1"
+./bin/ycsb run memcached -s -P workloads/workloadd -p "memcached.hosts=127.0.0.1" > memcached_workloadd_result.txt
+
+./bin/ycsb load memcached -s -P workloads/workloade -p "memcached.hosts=127.0.0.1"
+./bin/ycsb run memcached -s -P workloads/workloade -p "memcached.hosts=127.0.0.1" > memcached_workloade_result.txt
+
+./bin/ycsb load memcached -s -P workloads/workloadf -p "memcached.hosts=127.0.0.1"
+./bin/ycsb run memcached -s -P workloads/workloadf -p "memcached.hosts=127.0.0.1" > memcached_workloadf_result.txt
+
+Let's move to Aerospike data store tests
+Aerospike Commands
+
+./bin/ycsb load aerospike -s -P workloads/workloada -p "as.host=127.0.0.1" -p "as.port=3000"
+
+./bin/ycsb run aerospike -s -P workloads/workloada -p "as.host=127.0.0.1" -p "as.port=3000" > aerospike_workloada_result.txt
+
+We do the same to the remaining workloads.
+
+./bin/ycsb load aerospike -s -P workloads/workloadb -p "as.host=127.0.0.1" -p "as.port=3000"
+./bin/ycsb run aerospike -s -P workloads/workloadb -p "as.host=127.0.0.1" -p "as.port=3000" > aerospike_workloadb_result.txt
+
+./bin/ycsb load aerospike -s -P workloads/workloadc -p "as.host=127.0.0.1" -p "as.port=3000"
+./bin/ycsb run aerospike -s -P workloads/workloadc -p "as.host=127.0.0.1" -p "as.port=3000" > aerospike_workloadc_result.txt
+
+./bin/ycsb load aerospike -s -P workloads/workloadd -p "as.host=127.0.0.1" -p "as.port=3000"
+./bin/ycsb run aerospike -s -P workloads/workloadd -p "as.host=127.0.0.1" -p "as.port=3000" > aerospike_workloadd_result.txt
+
+./bin/ycsb load aerospike -s -P workloads/workloade -p "as.host=127.0.0.1" -p "as.port=3000"
+./bin/ycsb run aerospike -s -P workloads/workloade -p "as.host=127.0.0.1" -p "as.port=3000" > aerospike_workloade_result.txt
+
+./bin/ycsb load aerospike -s -P workloads/workloadf -p "as.host=127.0.0.1" -p "as.port=3000"
+./bin/ycsb run aerospike -s -P workloads/workloadf -p "as.host=127.0.0.1" -p "as.port=3000" > aerospike_workloadf_result.txt
+
